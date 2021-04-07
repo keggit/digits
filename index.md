@@ -64,3 +64,9 @@ Clicking on the List Contacts link brings up a page that lists all of the contac
 
 ![](/doc/list.png)
 
+Add Contacts  
+
+From the Navbar, the user can click the "Add" link to bring up a page for creation of new contacts.  
+
+![](/doc/add.png)
+
