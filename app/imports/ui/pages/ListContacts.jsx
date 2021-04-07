@@ -21,7 +21,7 @@ class ListContacts extends React.Component {
       <Container>
         <Header as="h2" textAlign="center" inverted>List Contacts</Header>
         <Card.Group>
-          {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} notes={this.props.notes.filter(note => (note.contactId === contact._id))}/>)}
+          {this.props.contacts.map((contact, index) => <Contact key={index} contact={contact} notes={this.props.notes.filter(note => (note.contactId === contact._id))} />)}
         </Card.Group>
       </Container>
     );

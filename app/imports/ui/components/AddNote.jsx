@@ -4,15 +4,15 @@ import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'unif
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import PropTypes from 'prop-types';
+import { PropTypes } from 'prop-types';
 import { Notes } from '../../api/note/Notes';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  owner: String,
-  createdAt: Date,
   note: String,
   contactId: String,
+  owner: String,
+  createdAt: Date,
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -22,7 +22,7 @@ class AddNote extends React.Component {
 
   // On submit, insert the data.
   submit(data, formRef) {
-    const { owner, createdAt, note, contactId } = data;
+    const { note, contactId, createdAt, owner } = data;
     Notes.collection.insert({ note, contactId, createdAt, owner },
       (error) => {
         if (error) {
@@ -38,7 +38,6 @@ class AddNote extends React.Component {
   render() {
     let fRef = null;
     return (
-
       <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => this.submit(data, fRef)} >
         <Segment>
           <TextField label="Add a timestamped note" name='note'/>
@@ -49,7 +48,6 @@ class AddNote extends React.Component {
           <HiddenField name='createdAt' value={new Date()}/>
         </Segment>
       </AutoForm>
-
     );
   }
 }

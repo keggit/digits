@@ -15,8 +15,8 @@ class NotesCollection {
     this.schema = new SimpleSchema({
       note: String,
       contactId: String,
-      owner: String,
       createdAt: Date,
+      owner: String,
     }, { tracker: Tracker });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
