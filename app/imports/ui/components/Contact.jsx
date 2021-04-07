@@ -31,6 +31,11 @@ class Contact extends React.Component {
           <Link to={`/edit/${this.props.contact._id}`}>Edit</Link>
         </Card.Content>
         <Card.Content extra>
+          <Feed>
+            {this.props.notes.map((note, index) => <Note key={index} note={note}/>)}
+          </Feed>
+        </Card.Content>
+        <Card.Content extra>
           <AddNote owner={this.props.contact.owner} contactId={this.props.contact._id}/>
         </Card.Content>
       </Card>

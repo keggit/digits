@@ -40,7 +40,6 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe(Contacts.userPublicationName);
   const subscription2 = Meteor.subscribe(Notes.userPublicationName);
-
   // Get the Stuff documents
   const contacts = Contacts.collection.find({}).fetch();
   const notes = Notes.collection.find({}).fetch();
